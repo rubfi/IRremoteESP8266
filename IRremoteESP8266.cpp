@@ -682,6 +682,26 @@ void IRsend::sendMitsubishiAC(unsigned char data[]) {
   }
   // A space() is always performed last, so no need to turn off the LED.
 }
+
+void IRsend::sendRobosapien(unsigned long data, int nbits) {
+  // Set IR carrier frequency
+  enableIROut(39);
+  // Header
+  mark(ROBOSAPIEN_HDR_MARK);
+  space(ROBOSAPIEN_HDR_SPACE);
+  // Data
+  for (unsigned long mask = 1UL << (nbits - 1); mask; mask >>= 1) {
+    if (data & mask) {  // 1
+      mark(ROBOSAPIEN_BIT_MARK);
+      space(ROBOSAPIEN_ONE_SPACE);
+    } else {  // 0
+      mark(ROBOSAPIEN_BIT_MARK);
+      space(ROBOSAPIEN_ZERO_SPACE);
+    }
+  }
+  // Footer
+  ledOff();
+}
 // ---------------------------------------------------------------
 
 

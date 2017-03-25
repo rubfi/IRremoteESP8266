@@ -185,6 +185,14 @@
 #define KELVINATOR_GAP_SPACE	19950U
 #define KELVINATOR_CMD_FOOTER	2U
 
+//Robosapien, http://web.archive.org/web/20071023184155/http://www.andrew.cmu.edu/user/ebuehl/robosapien-lirc/
+#define ROBOSAPIEN_HDR_MARK     6666
+#define ROBOSAPIEN_HDR_SPACE    3333
+#define ROBOSAPIEN_BIT_MARK     833
+#define ROBOSAPIEN_ONE_SPACE    3333
+#define ROBOSAPIEN_ZERO_SPACE   833
+#define ROBOSAPIEN_GAP          0
+
 #define TOLERANCE 25  // percent tolerance in measurements
 #define LTOL (1.0 - TOLERANCE/100.)
 #define UTOL (1.0 + TOLERANCE/100.)
@@ -234,5 +242,6 @@ extern volatile irparams_t irparams;
 #define WHYNTER_BITS 32
 #define COOLIX_NBYTES 3
 #define DAIKIN_BITS 99
+#define ROBOSAPIEN_BITS 8
 
 #endif
